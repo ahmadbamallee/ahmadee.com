@@ -30,7 +30,7 @@ nav {
   position: fixed;
   top: 0;
   left: 0;
-  background-color: #e7e1fb;
+  background: linear-gradient(to left, #e1cff2, #9222ea);
   border-radius: 25px;
   z-index: 99;
 }
@@ -52,7 +52,7 @@ nav .logo a {
 }
 
 nav .logo a:hover {
-  color: var(--primary-color-dark);
+  color: #e1cff2;
 }
 
 nav .checkbox {
@@ -65,7 +65,7 @@ nav input {
 
 nav .checkbox i {
   font-size: 2rem;
-  color: var(--primary-color);
+  color: #7917c4;
   cursor: pointer;
 }
 
