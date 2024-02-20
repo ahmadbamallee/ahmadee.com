@@ -19,7 +19,7 @@ document.addEventListener('DOMContentLoaded', function () {
 
         // Create a hidden form in the new tab and submit it
         const hiddenForm = newTab.document.createElement('form');
-        hiddenForm.action = 'https://formspree.io/f/mvojagzg';
+        hiddenForm.action = 'https://formspree.io/f/xpzvdepk';
         hiddenForm.method = 'POST';
         hiddenForm.style.display = 'none';
 
