@@ -7,17 +7,18 @@
   <link
     href="https://cdn.jsdelivr.net/npm/remixicon@3.2.0/fonts/remixicon.css"
     rel="stylesheet"/>
-	<script
+  <script
       src="https://kit.fontawesome.com/ba1223f8eb.js"
       crossorigin="anonymous"
     ></script>
-	<script src="javascript/sendform.js"></script>
+  <!-- Temporarily comment this out to test -->
+  <!-- <script src="javascript/sendform.js"></script> -->
   <link rel="stylesheet" href="styles/message.css">
   <link rel="stylesheet" href="styles/style.css" />
   <script src="javascript/herodynamic.js"></script>
   <link rel="shortcut icon" href="assets/logo/newfav.PNG" type="image/x-icon">
   <title>Ahmad Bamallee</title>
-	<!-- Google Analytics tracking code -->
+  <!-- Google Analytics tracking code -->
     <script
       async
       src="https://www.googletagmanager.com/gtag/js?id=G-TE74HWK518"
@@ -30,7 +31,8 @@
       gtag("js", new Date());
       gtag("config", "G-TE74HWK518");
     </script>
-	<!-- End Google Analytics tracking code -->
+  <!-- End Google Analytics tracking code -->
+
 </head>
 <body>
 <header>
@@ -44,7 +46,6 @@
    </div>
     <input type="checkbox" id="menu">
     <ul class="nav">
-        
         <label for="menu">
             <i class="fa-solid fa-xmark"></i>
         </label>
@@ -63,9 +64,6 @@
         <h1 class="title">
             I'm <span>Ahmad<br /></span><span id="dynamicText"> Programmer.</span>
         </h1>
-
-        <p class="description">
-        </p>
         <div class="action__btns">
           <a href="skills.html">
             <button class="Contact">Skills</button>
@@ -83,18 +81,40 @@
 
   <div class="message">
     <h5>SEND ME A MESSAGE</h5><br>
-    <form class="message-form" action="" target="_blank" method="post">
-      <input class="in" type="text" name="message-name" id="subject" placeholder="Enter Your Name" required> <br><br>
-      <input class="in" type="text" name="message-subject" id="subject" placeholder="Message Subject" required> <br><br>
-      <input class="mail" type="email" name="email" placeholder="example@gmail.com" required><br><br>
+    <form class="message-form">
+      <input class="in" type="text" name="message-name" id="message-name" placeholder="Enter Your Name" required> <br><br>
+      <input class="in" type="text" name="message-subject" id="message-subject" placeholder="Message Subject" required> <br><br>
+      <input class="mail" type="email" name="email" id="email" placeholder="example@gmail.com" required><br><br>
       <textarea class="t-area" name="message-body" placeholder="Your Message" id="message-body" cols="30" rows="10" required></textarea> <br>
       <button class="btn" type="submit">Send Message</button>
-
-       <script src="javascript/sendform.js"></script>
     </form>
-    
-  </div>
-  
+
+    <script src="https://cdn.emailjs.com/dist/email.min.js"></script>
+    <script>
+      (function(){
+          emailjs.init("DwohPlLT_3x2T1lEG"); // Replace "YOUR_API_KEY" with your actual public key
+      })();
+    </script>
+
+    <script>
+      document.querySelector('.message-form').addEventListener('submit', function(event) {
+          event.preventDefault(); // Prevent form from submitting normally
+          
+          emailjs.send("service_hgkw6pp", "template_yc7bxzh", {
+              message_name: document.getElementById('message-name').value,
+              message_subject: document.getElementById('message-subject').value,
+              email: document.getElementById('email').value,
+              message_body: document.getElementById('message-body').value,
+          })
+          .then(function(response) {
+              alert('Message sent successfully!');
+          }, function(error) {
+              alert('Failed to send message. Please try again later.');
+          });
+      });
+    </script>
+</div>
+
   <footer class="footer">
     &copy; <script>document.write(new Date().getFullYear())</script> Designed by Ahmad Bamalli
   </footer>
